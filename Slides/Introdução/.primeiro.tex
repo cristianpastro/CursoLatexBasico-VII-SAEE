@@ -1,0 +1,250 @@
+\documentclass[aspectratio=169]{beamer}
+\usepackage[brazil]{babel}   
+\usepackage[latin1]{inputenc}  
+\usetheme[]{Madrid}
+\usecolortheme{crane}
+\usepackage{wrapfig}
+
+\title{O Protocolo Modbus}
+\author{Cristian R. Pastro \and Heloiza M. Paulichen}
+
+
+\begin{document}
+	\frame{\titlepage}
+		
+	\AtBeginSection[]
+	{
+		\begin{frame}
+			\frametitle{Sumário}
+			\tableofcontents[currentsection]
+		\end{frame}
+	}
+	
+	\section{O que é Modbus?}
+
+	\begin{frame}{O que é Modbus?}
+		\begin{block}{O que é Modbus?}
+		O \textit{Modbus} é um protocolo industrial desenvolvido para possibilitar a comunicação entre dispositivos de automação industrial\cite{modbus.org}. Criado em 1979 pela Modicon, é um dos mais antigos e até hoje mais utilizados protocolos em redes de Controladores lógicos programáveis (PLC) para aquisição de sinais(0 ou 1) de instrumentos e comandar atuadores.
+		\end{block}
+			\begin{figure}[h]
+				\centering
+				\includegraphics[scale=.2]{images/modiconlogo}
+				\caption{Logotipo da Empresa Modicon}
+				\label{fig.logo.modicon}
+			\end{figure}			
+		\end{frame}
+		
+	\begin{frame}{O que é Modbus?}
+		A Schneider Electric (atual controladora da Modicon) transferiu os direitos do protocolo para a Modbus Organization em 2004 e a utilização é livre de taxas de licenciamento. Por esta razão, e também por se adequar facilmente a diversos meios físicos, é utilizado em milhares de equipamentos existentes e é uma das soluções de rede mais baratas a serem utilizadas em Automação Industrial
+		\begin{figure}
+			\centering
+			\includegraphics[scale=.2]{images/modbus-logo2}
+			\caption{Logotipo Oficial do Protocolo Modibus}
+			\label{fig.logo.modbus}
+		\end{figure}	
+	\end{frame}
+	
+	\section{Como Funciona o Protocolo Modbus}
+	
+	\begin{frame}{Como Funciona o Protocolo Modbus}
+		\begin{itemize}
+			\item 	O Modbus é um protocolo de comunicação que utiliza o relacionamento mestre-escravo, onde o mestre deve inciar uma requisição e então aguardar uma resposta do escravo \cite{modbus.national}.
+		\end{itemize}
+		
+			\begin{figure}
+				\centering
+				\includegraphics[scale=.45]{images/esquemamodbus}
+				\caption{Esquema básico de funcionamento do Modbus}
+				\label{fig.esquema.modbus}
+			\end{figure}	
+		\end{frame}
+		
+	
+	\begin{frame}{Como Funciona o Protocolo Modbus}
+		O Modbus é um dos protocolos mais utilizados em automação industrial, graças à sua simplicidade e facilidade de implementação, podendo ser utilizado em diversos padrões de meio físico, como:
+		\begin{wrapfigure}[13]{l}{6cm}
+			\centering
+			\includegraphics[scale=.4]{images/modbus2}
+		\end{wrapfigure}
+		\begin{itemize}
+			\item RS-232
+			\item RS-485
+			\item Ethernet TCP/IP
+		\end{itemize}
+		A velocidade de comunicação varia em cada um desses padrões, bem como o comprimento máximo da rede e o número máximo de dispositivos conectados.
+	\end{frame}
+	
+	\section{Os Padrões para comunicação Modbus}
+	
+	\subsection{RS-232}
+	\begin{frame}{Os Padrões para comunicação Modbus - RS-232}
+		\cite{modbus.embarcados.com}
+		\begin{enumerate}
+			\item Comunicação ponto a ponto, ou seja, apenas um mestre e um escravo;
+			\item Velocidade máxima de 115Kbps, mas em alguns casos pode ser um pouco maior;
+			\item Distância máxima em torno de 30m;
+		\end{enumerate}
+		
+		\begin{figure}
+			\centering
+			\includegraphics[scale=.45]{images/rs232}
+			\caption{Esquema básico de funcionamento protocolo RS-232}
+			\label{fig.esquema.modbus.rs232}
+		\end{figure}	
+	\end{frame}
+	
+	\subsection{RS-485 }
+	\begin{frame}{Os Padrões para comunicação Modbus - RS-485 }
+		\cite{modbus.embarcados.com}
+		\begin{enumerate}
+			\item É muito utilizado na indústria e sem dúvida é um dos padrões mais utilizados pelo protocolo Modbus
+			\item Número máximo de dispositivos no barramento da rede é de 32
+			\item Velocidade máxima de 12Mbps, mas em alguns casos pode chegar a 50Mbps;
+			\item Vale lembrar que quanto maior o comprimento da rede menor será a velocidade de comunicação, a distância máxima da rede está em torno de 1200m;
+		\end{enumerate}
+			
+		\begin{figure}
+			\centering
+			\includegraphics[scale=.25]{images/RS-485}
+			\caption{Esquema básico de funcionamento protocolo RS-485}
+			\label{fig.esquema.modbus.485}
+		\end{figure}	
+	\end{frame}
+
+	\subsection{Ethrenet}
+	\begin{frame}{Os Padrões para comunicação Modbus - Ethrenet }
+		\cite{modbus.embarcados.com}
+		\begin{enumerate}
+			\item O padrão Ethernet no protocolo Modbus possui algumas variações, podendo chegar a 100Mbps ou até 10Gbps.
+			\item A distância máxima pode variar de 100m até próximo de 200m dependendo do tipo de cabo utilizado e das condições de instalação do mesmo.
+			\item Em alguns casos é possível utilizar redes em fibra ótica, fato que permite alcançar distâncias maiores e melhores taxas de comunicação, bem como utilizar comunicação wireless.
+		\end{enumerate}
+		
+		\begin{figure}
+			\centering
+			\includegraphics[scale=.15]{images/ethrenet}
+			\caption{Esquema básico de funcionamento protocolo Modbus Ethrenet}
+			\label{fig.esquema.modbus.Ethrenet}
+		\end{figure}	
+	\end{frame}
+	
+	\section{Tratamento de falhas}
+	\subsection{Colisões}
+	\begin{frame}{Tratamento de falhas - Colisões}
+		\begin{block}{Colisões durante o acesso ao meio}
+			É importante ressaltar que o protocolo não especifica como colisões devem ser tratadas, cabendo à aplicação implementar de forma correta o acesso ao meio, parâmetros de tempo limite, etc
+		\end{block}
+				\begin{figure}
+					\centering
+					\includegraphics[scale=.8]{images/colisao2}
+
+				\end{figure}
+	\end{frame}
+	
+	\begin{frame}{Tratamento de falhas - Colisões}
+		Suponha que em dada aplicação Modbus com protocolo \textit{RS-485}, o mestre requisita informações a um de seus escravos. Logo em seguida é feita uma requisição a outro escravo tento ou não recebido uma resposta do escravo anterior. \newline
+		de implementação, podendo ser utilizado em diversos padrões de meio físico, como:
+		\begin{wrapfigure}[13]{l}{6cm}
+			\centering
+			\includegraphics[scale=.4]{images/colisao}
+		\end{wrapfigure}
+		Se o primeiro escravo demora mais tempo para responder do que o tempo que o mestre espera para a segunda requisição, pode acontecer que o primeiro escravo responda bem na hora que o mestre faz a requisição seguinte, ou quando o segundo escravo está respondendo, havendo colisão no meio. 
+	\end{frame}
+	
+	\section{Vantagens e Desvantagens}
+	\begin{frame}{Vantagens}
+		\begin{itemize}
+			\item É um protocolo aberto e não demanda de custos de licenças;
+			\item Custo extremamente baixo se comparado a outros protocolos industriais;
+			\item Não exige conectores específicos e/ou proprietários;
+			\item Muita documentação disponível;
+			\item Configuração geralmente simples. \cite{modbus.ebah}
+		\end{itemize}
+				\begin{figure}
+					\centering
+					\includegraphics[scale=.8]{images/positivo}
+				\end{figure}
+	\end{frame}
+	
+	\begin{frame}{Desvantagens}
+		\begin{itemize}
+			\item Ruim para aplicações em tempo real, sendo \textit{profibus} mais adequado para este caso;
+			\item Não existe padronização para o formato que o dado é transportado, cada fabricante pode ter formatação diferente disponível em seu manual. \cite{modbus.ebah};
+		\end{itemize}
+		\begin{figure}
+		\centering
+			\includegraphics[scale=.8]{images/negativo}
+		\end{figure}
+	\end{frame}
+	
+	\section{Utilizações do Protocolo Modbus}
+	\subsection{Módulo IO Remoto}
+	\begin{frame}
+		Um  equipamento  eletrônico microcontrolado que realiza a leitura de determinados sinais elétricos provenientes de um sistema a ser automatizado e gera outro sinais elétricos para tal sistema.\cite{modbus.iodevice}
+		Como se trata de um sistema microcontrolado, é possível realizar processamento no sinal antes de enviá-lo ao PLC.
+		\begin{wrapfigure}[13]{r}{9cm}
+			\centering
+			\includegraphics[scale=.4]{images/moduloio}
+			\caption{Esquema Módulo IO utilizando Modbus}
+			\label{fig.esquema.modbus.moduloio}
+		\end{wrapfigure}	
+	
+		\begin{itemize}
+			\item Utiliza o protocolo RS-232;
+			\item Atua como dispositivo escravo;
+			\item Modo RTU;
+			\item Utiliza paridade e baud rate de 9600bps;
+		\end{itemize}	
+	\end{frame}
+	
+	\subsection{Dispositivos Através de Modbus TCP}
+	\begin{frame}
+		\begin{block}{O que é?}
+			Implementação de um Servidor OPC UA em linguagem C\# para comunicação com dispositivos através do protocolo Modbus/Ethernet em tempo real\cite{modbus.iodevice.ecomp}
+		\end{block}
+			\begin{wrapfigure}[13]{r}{9cm}
+				\centering
+				\includegraphics[scale=.23]{images/opc}
+			\end{wrapfigure}
+	\textbf{Objetivo:} Desenvolvimento de software em linguagem C\# de um Servidor OPC UA para comunicação com diversos dispositivos CLP, com protocolo Modbus/Ethernet, em tempo real
+		e visualização de variações dos valores obtidos pelos seus clientes
+		
+		
+	\end{frame}
+	
+	
+		\subsection{Modbus no Linux}
+		\begin{frame}{Modbus no Linux}
+
+				\begin{figure}
+					\centering
+					\includegraphics[scale=.4]{images/linux}
+				\end{figure}
+
+		\end{frame}
+		
+		\begin{frame}{Modbus no Linux}
+			
+			\begin{figure}
+				\centering
+				\includegraphics[scale=.4]{images/linux2}
+			\end{figure}
+			
+		\end{frame}
+	
+	\subsection{Projetos com ScadaBR}
+	\begin{frame}{Projetos com ScadaBR}
+		\begin{block}{O que é ScadaBR?}
+		O ScadaBR consiste em um sistema supervisório completo que por sua vez é disponibilizado em licença Open Source
+		\end{block}
+		
+		\begin{itemize}
+			\item Mostrar ScadaBR;
+			\item Mostrar Projetos Modbus;
+		\end{itemize}
+	\end{frame}
+
+	
+	\bibliographystyle{acm}
+	\bibliography{library-references}
+\end{document}\grid

@@ -1,0 +1,10 @@
+\frametitle{VII SAEE}
+		\transdissolve[duration=1, direction=25]
+
+			\begin{block}{Mas o que são os \textit{usepackage}'s?}
+				Eles são basicamente pacotes de comandos. A adição de \textit{usepackage}'s aumenta significativamente o \textit{poder} do \LaTeX.
+			\end{block}
+
+			\begin{block}{Analogia...}
+				\textit{usepackage}'s podem ser entendidos como uma biblioteca de uma linuagem de programação.
+			\end{block}

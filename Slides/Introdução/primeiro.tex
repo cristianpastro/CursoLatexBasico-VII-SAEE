@@ -1,0 +1,382 @@
+\documentclass[aspectratio=169]{beamer}
+\usepackage[brazil]{babel}   
+\usepackage[latin1]{inputenc}  
+\usetheme[]{Madrid}
+\usecolortheme{crane}
+\usepackage{fancyvrb}
+
+\title[Curso de Extensão]{Introdução ao Latex}
+\author{Eng. Cristian R. Pastro}
+\date{04 de Setembro de 2019}
+\institute{UTFPR}
+
+\begin{document}
+\frame{\titlepage
+		
+	\begin{center}
+		VII Semana Acadêmica de Engenharia Elétrica
+	\end{center}
+		
+}
+		
+	\AtBeginSection[]
+	{
+		\begin{frame}
+			\frametitle{Sumário}
+			 \transdissolve[duration=1, direction=25]
+			\tableofcontents[currentsection]
+		\end{frame}
+	}
+
+\section{Introdução}
+
+\frame{
+	\frametitle{VII SAEE}
+	 \transdissolve[duration=1, direction=25]
+	
+	\begin{block}{O que é \LaTeX?}
+		\LaTeX é um editor de textos de alta qualidade tipográfica, muito utilizado em textos acadêmicos e/ou matemáticos.
+	\end{block}
+
+
+	\begin{figure}
+		\centering
+		\includegraphics[width=.3\linewidth]{images/mat.jpg}
+	\end{figure}
+		
+}
+
+\frame{
+	\frametitle{VII SAEE}
+	\transdissolve[duration=1, direction=25]
+	
+	\begin{block}{Qual a sua diferença para o Word, Libreoffice, WPS, ... ?}
+		O Word, Libreoffice Writer são editores de texto de uso geral. Já o \LaTeX é um editor voltado para textos acadêmicos e matemáticos. O \LaTeX é desenhado e apropriado para esse fim.
+	\end{block}\pause
+	
+	\begin{figure}[h!]
+		\centering
+		\includegraphics[width=.2\linewidth]{images/martelo.jpg}
+		\includegraphics[width=.2\linewidth]{images/vs.jpg}
+		\includegraphics[width=.2\linewidth]{images/marreta.jpg}
+		\caption{Qual a melhor ferramenta?}
+	\end{figure}
+}
+
+\frame{
+	\frametitle{VII SAEE}
+	\transdissolve[duration=1, direction=25]
+	
+	\begin{block}{Tá, mas pra que eu posso utilizá-lo na Engenharia?}
+		Você pode utilizá-lo para a confecção de artigos, trabalhos acadêmicos em formatos específicos (IEEE, Automática, SBC, etc), TCCs, dissertações de mestrado, etc.
+	\end{block}
+	
+	\begin{figure}[h!]
+		\centering
+		\includegraphics[width=.7\linewidth]{images/art.png}
+	\end{figure}
+}
+
+\frame{
+	\frametitle{VII SAEE}
+	\transdissolve[duration=1, direction=25]
+	
+	\begin{block}{Qual a ideia central do \LaTeX}
+		\begin{enumerate}
+			\item Distanciar ao máximo o autor da forma como o documento será apresentado;
+			\item Trabalhar com conceitos lógicos ao invés de visuais;
+			\item Possuir um conjunto de macros (comandos) capazes de integrar os conceitos lógicos e levá-los a um formato visual.
+		\end{enumerate}
+	\end{block}
+
+	\begin{figure}[h!]
+		\centering
+		\includegraphics[width=.7\linewidth]{images/art.png}
+	\end{figure}
+}
+
+\frame{
+	\frametitle{VII SAEE}
+	\transdissolve[duration=1, direction=25]
+			
+		\begin{minipage}{.4\linewidth}
+			\begin{figure}[h!]
+				\centering
+				\includegraphics[width=.8\linewidth]{images/vant.png}
+			\end{figure}
+		\end{minipage}\pause
+	\begin{minipage}{.45\linewidth}
+	\begin{block}{Vantagens}
+		\begin{itemize}
+			\item Padronização;
+			\item Rapidez;
+			\item Confiabilidade;
+			\item Alta Qualidade.
+		\end{itemize}
+	\end{block}\pause
+	\begin{block}{Desantagens}
+		\begin{itemize}
+			\item Curva de aprendizagem exponencial;
+			\item Menor flexibilidade;
+			\item \textit{Programar} o seu texto pode não ser trivial no começo.
+		\end{itemize}
+	\end{block}
+\end{minipage}
+		
+}
+
+\frame{
+	\frametitle{VII SAEE}
+	\transdissolve[duration=1, direction=25]
+	
+	\begin{block}{O que é necessário para iniciar com \LaTeX ?}
+		\begin{itemize}
+			\item Um programa que implementa o Tex. Ex: Mixtex, Texlive;
+			\item Um editor de textos qualquer. Ex: Sublime, Vim, Emacs, Nano, Bloco de Notas, etc;
+			\item Alternativamente você pode utilizar um editor de textos já feito para \LaTeX. Ex: TexStudio.
+		\end{itemize}\pause
+		Ou...\\ \pause
+		Você pode usar um editor de Latex online, como o \textit{Overleaf}. https://www.overleaf.com/
+	\end{block}
+}
+
+
+\frame{
+	\frametitle{VII SAEE}
+	\transdissolve[duration=1, direction=25]
+	
+	\begin{minipage}{.43 \linewidth}
+		\begin{figure}[h!]
+			\centering
+			\includegraphics[width=.6\linewidth]{images/vanta.jpg}
+		\end{figure}\pause
+	\end{minipage}
+	\begin{minipage}{.43\linewidth}
+		\begin{block}{Vantagens do Overleaf}
+			\begin{itemize}
+				\item Arquivos salvos na nuvem;
+				\item Não perde os trabalhos se o computador \textit{der pau};
+				\item Arquivos salvos em tempo real, ou seja, não tem o perigo de perder sua última alteração depois de uma falta de luz;
+				\item Não ocupa espaço no disco rígido;
+				\item Projetos compartilhados: duas ou mais pessoas podem editar o mesmo projeto ao mesmo tempo.
+			\end{itemize} 
+		\end{block}
+	\end{minipage}
+}
+	
+\frame{
+		\frametitle{VII SAEE}
+		\transdissolve[duration=1, direction=25]
+		
+		\begin{minipage}{.43 \linewidth}
+			\begin{figure}[h!]
+				\centering
+				\includegraphics[width=.6\linewidth]{images/desvanta.jpg}
+			\end{figure}
+		\end{minipage}\pause
+		\begin{minipage}{.43\linewidth}
+			\begin{block}{Desvantagens do Overleaf}
+				\begin{itemize}
+					\item Depende de conexão com a internet;
+					\item Se a conxão com a internet estiver instável, podem haver \textit{lags} na utilização.
+				\end{itemize} 
+			\end{block}
+		\end{minipage}	
+}
+
+\section{Meu primeiro texto em \LaTeX}
+	
+\begin{frame}[fragile]
+		\frametitle{VII SAEE}
+		\transdissolve[duration=1, direction=25]
+			\noindent
+		\begin{minipage}{.47\linewidth}
+			\begin{block}{Preâmbulo}
+				Todo documento em \LaTeX inicia com o preâmbulo:
+				\begin{verbatim}
+					\documentclass[opções]{classe}
+				\end{verbatim}
+				As classes mais comuns são \textit{article} (artigo), \textit{report} (relatório ou tese), \textit{book} (livro), \textit{slides} (transparências) e \textit{letter} (carta) e as opções possíeis são \textit{a4paper} (papel A4), \textit{letterpaper} (papel tamanho carta), \textit{10pt} (tamanho 10 pontos - padrão), \textit{11pt} (tamanho 11 pontos), \textit{12pt} (tamanho 12 pontos), \textit{twocolumn} (texto em duas colunas), \textit{twoside} (impressão nos dois lados do papel), entre outras.
+			\end{block}
+		\end{minipage}\pause
+		\hspace{.02\linewidth}
+		\begin{minipage}{.47\linewidth}
+			\begin{verbatim}
+				\documentclass[a4paper,11pt]{article}
+			\end{verbatim}
+		\end{minipage}
+\end{frame}
+
+
+
+\begin{frame}[fragile]
+	\frametitle{VII SAEE}
+	\transdissolve[duration=1, direction=25]
+	\noindent
+	\begin{minipage}{.47\linewidth}
+		\begin{block}{Preâmbulo}
+			O documento principal em \LaTeX deve estar entre os comandos:
+			\begin{verbatim}
+				\begin{document}
+			\end{verbatim}
+			e
+			\begin{verbatim}
+				\end{document}
+			\end{verbatim}
+		\end{block}
+	\end{minipage}\pause
+	\hspace{.03\linewidth}
+	\begin{minipage}{.47\linewidth}
+		\begin{Verbatim}
+\documentclass[a4paper,11pt]{article}
+				
+\begin{document}
+					
+	Meu primeiro texto em \LaTeX
+					
+\end{document}
+		\end{Verbatim}
+	\end{minipage}\pause
+	
+	\begin{minipage}{\linewidth}
+		\begin{block}{Dica:}
+			Sempre que algo iniciar com $\backslash$begin\{ComandoQualquer\}, sempre haverá um $\backslash$end\{ComandoQualquer\} para encerrar o ambiente de atuação deste comando.
+		\end{block}
+	\end{minipage}
+\end{frame}
+
+
+\begin{frame}[fragile]
+	\frametitle{VII SAEE}
+	\transdissolve[duration=1, direction=25]
+	\noindent
+	\begin{minipage}{.47\linewidth}
+		\begin{block}{Dica}
+			Você também pode adicionar a data, o autor e o título do projeto, como mostrado nas linhas 4, 5 e 6. 
+		\end{block}
+	
+		\begin{block}{Dica2}
+			Neste caso, essas informações podem ser mostradas automaticamente no seu documento por meio do comando  $\backslash$maketitle (linha 10).
+		\end{block}
+	\end{minipage}
+	\hspace{.03\linewidth}
+	\begin{minipage}{.47\linewidth}
+		\begin{Verbatim}
+\documentclass{article}
+	
+\title{Meu primeiro programa em \LaTeX}
+\author{Don Ramón}
+\date{Setembro 2019}
+	
+\begin{document}
+	
+	\maketitle
+	
+\end{document}
+		\end{Verbatim}
+	\end{minipage}\pause
+	
+	\vspace{-6cm}
+	\begin{block}{Resultado...}
+		\begin{figure}[h!]
+			\includegraphics[width=.85\linewidth]{images/Comp1.png}
+		\end{figure}
+	\end{block}
+\end{frame}
+
+\begin{frame}[fragile]
+	\frametitle{VII SAEE}
+	\transdissolve[duration=1, direction=25]
+	\noindent
+	\begin{minipage}{.47\linewidth}
+		\begin{block}{Dica}
+		Para resolver esse problema basta adicionar um \textit{usepackage}:
+		\begin{verbatim}
+			\usepackage[utf8]{inputenc}
+		\end{verbatim}
+		\end{block}
+	\end{minipage}
+	\hspace{.03\linewidth}
+	\begin{minipage}{.47\linewidth}
+		\begin{Verbatim}
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+		
+\title{Meu primeiro programa em \LaTeX}
+\author{Don Ramón}
+\date{Setembro 2019}
+		
+\begin{document}
+		
+	\maketitle
+		
+\end{document}
+		\end{Verbatim}
+	\end{minipage}\pause
+	
+	\vspace{-6cm}
+	\begin{block}{Resultado...}
+		\begin{figure}[h!]
+			\includegraphics[width=.85\linewidth]{images/Comp2.png}
+		\end{figure}
+	\end{block}
+\end{frame}
+
+\begin{frame}[fragile]
+	\frametitle{VII SAEE}
+	\transdissolve[duration=1, direction=25]
+	\noindent
+	\begin{minipage}{.47\linewidth}
+		\begin{block}{Dica}
+			Você também pode adicionar a data atual do sistema, colocando $\backslash$today, no comando $\backslash$date.
+		\end{block}
+	
+		\begin{block}{Dica2}
+			Para a data ficar em português, use o \textit{usepackage}:
+			\begin{verbatim}
+				\usepackage[portuguese]{babel}
+			\end{verbatim}
+		\end{block}
+	\end{minipage}
+	\hspace{.03\linewidth}
+	\begin{minipage}{.47\linewidth}
+		\begin{Verbatim}
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage[portuguese]{babel}
+		
+\title{Meu primeiro programa em \LaTeX}
+\author{Don Ramón}
+\date{\today}
+		
+\begin{document}
+		
+	\maketitle
+		
+\end{document}
+		\end{Verbatim}
+	\end{minipage}\pause
+	
+	\vspace{-6cm}
+	\begin{block}{Resultado...}
+		\begin{figure}[h!]
+			\includegraphics[width=.85\linewidth]{images/Comp3.png}
+		\end{figure}
+	\end{block}
+
+\end{frame}
+
+	\begin{frame}[fragile]
+		\frametitle{VII SAEE}
+		\transdissolve[duration=1, direction=25]
+		
+			\begin{block}{Mas o que são os \textit{usepackage}'s?}
+				Eles são basicamente pacotes de comandos. A adição de \textit{usepackage}'s aumenta significativamente o \textit{poder} do \LaTeX.
+			\end{block}
+		
+			\begin{block}{Analogia...}
+				\textit{usepackage}'s podem ser entendidos como uma biblioteca de uma linuagem de programação.
+			\end{block}
+	\end{frame}
+
+\end{document}\grid
