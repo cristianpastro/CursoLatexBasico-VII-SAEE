@@ -1,4 +1,4 @@
-Versão 3.0.4
+Versão 3.0.5
   - adicionado o comando "captionsource", para adicionar captions nas figuras já com a referência (apenas no TCC).
   - adicinadas macros para o autor escolher nome do curso, departamento, etc, sem precisar alterar o template (apenas no TCC).
 
