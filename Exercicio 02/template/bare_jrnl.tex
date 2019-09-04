@@ -1,0 +1,42 @@
+\documentclass[journal]{IEEEtran}
+
+\ifCLASSINFOpdf
+\else
+   \usepackage[dvips]{graphicx}
+\fi
+\usepackage{url}
+
+\hyphenation{op-tical net-works semi-conduc-tor}
+
+\usepackage{graphicx}
+
+
+\begin{document}
+
+\title{Preparation of Papers for IEEE Signal Processing Letters (5-page limit)}
+
+\author{First A. Author, Second B. Author, and Third C. Author, Jr.}
+
+\markboth{Journal of \LaTeX\ Class Files, Vol. 14, No. 8, August 2015}
+{Shell \MakeLowercase{\textit{et al.}}: Bare Demo of IEEEtran.cls for IEEE Journals}
+\maketitle
+
+\begin{abstract}
+These instructions give you guidelines for preparing papers for IEEE Signal Processing Letters. Use this document as a template if you are using \LaTeX. Otherwise, use this document as an instruction set. The electronic file of your paper will be formatted further at IEEE. Paper titles should be written in uppercase and lowercase letters, not all uppercase. Do not write ``(Invited)'' in the title. Full names of authors are preferred in the author field, but are not required. Put a space between authors’ initials. The abstract must be a concise yet comprehensive reflection of what is in your article. In particular, the abstract must be self-contained, without abbreviations, footnotes, or references. It should be a microcosm of the full article. The abstract is typically between 100--175 words. The abstract must be written as one paragraph, and should not contain displayed mathematical equations or tabular material. The abstract should include three or four different keywords or phrases, as this will help readers to find it. It is important to avoid over-repetition of such phrases as this can result in a page being rejected by search engines. Ensure that your abstract reads well and is grammatically correct.
+\end{abstract}
+
+\begin{IEEEkeywords}
+Enter key words or phrases in alphabetical order, separated by commas.
+\end{IEEEkeywords}
+
+
+Testando a referência do \cite{cormem}.
+
+\IEEEpeerreviewmaketitle
+
+
+\bibliographystyle{plain} 
+\bibliography{refs/library-references}
+
+
+\end{document}
