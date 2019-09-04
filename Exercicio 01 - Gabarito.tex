@@ -1,0 +1,129 @@
+\documentclass[12pt, twocolumn]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[portuguese]{babel}
+
+\title{Um texto genérico em \LaTeX}
+\author{Engenheiro Eletricista da Silva}
+\date{\today}
+
+\begin{document}
+
+    \tableofcontents
+    \maketitle
+    
+    Este documento tem por objetivo o treinamento de \ \LaTeX.
+    
+    \section{Conceitos iniciais}
+        
+    \textbf{Engenharia elétrica} é o ramo da engenharia que trabalha com os estudos e aplicações de:
+    \begin{itemize}
+        \item eletricidade;
+        \item eletromagnetismo;
+        \item eletrônica.
+    \end{itemize}
+    
+    Algumas disciplinas deste curso são: 
+    \begin{enumerate}
+        \item Geração De Energia Elétrica;
+        \item Sistemas de Controle;
+        \item Instalações Elétricas;
+        \item Máquinas Elétricas.
+    \end{enumerate}
+    
+    \subsection{Negrito e Itálico}
+    
+    Um conceito moderno para os engenheiros eletricistas é o de \textit{smart grids}. \textit{smart grid} refere-se a um sistema de energia elétrica que se utiliza da tecnologia da informação para fazer com que o sistema seja mais eficiente.\\
+    
+    Nota-se que \textbf{Rede elétrica }é uma rede interligada para entrega da eletricidade dos fornecedores aos consumidores.
+    
+    \section{Lei de Ohm}
+    
+    Todo Engenheiro Eletricista conhece a famosa lei de \textit{Ohm}, dada pela Equação \ref{eq.ohm}.
+    
+    \begin{equation}
+        \label{eq.ohm}
+        V = RI.
+    \end{equation}
+    
+    E como vale a Equação \ref{eq.ohm}, sabe-se também que $I = \frac{V}{R}$.
+    
+    \section{O \LaTeX \ e os engenheiros}
+    
+    Assim como outros estudantes da área de exatas, engenheiros eletricistas usam bastante o \ \LaTeX, no qual o preâmbulo inicia com:
+    \begin{verbatim}
+        \documentclass[12pt]{article}
+    \end{verbatim}
+    
+    
+    \section{Fórmula para resolução de Equações Quadráticas}
+    
+    A fórmula de Bháskara é dada por \ref{eq.bas}:
+    \begin{equation}
+        \label{eq.bas}
+        x_{1,2} = \frac{-b \pm \sqrt{\Delta}}{2a},
+    \end{equation}
+    em que:
+    $$
+        \Delta = b^2-4ac.
+    $$
+    
+    \subsection{Matrizes}
+    
+    A matriz de marização é dada pela Equação \ref{eq.mat}.
+    \begin{equation}
+        \label{eq.mat}
+        M = \left[ 
+            \begin{array}{ccccc}
+            e        &    x_a    &    \alpha &   10  &  \pi\\
+            \delta   &    0      &    \beta  &   10  &  \pi \\
+            \sigma   &    e^\pi  &    \Delta &   10   & \pi  \\
+            3        &    2      &    \omega &   10   & \pi  \\
+            \end{array}
+        \right]
+        \times
+        \left[ 
+            \begin{array}{c}
+            \theta_{\alpha}  \\
+            \theta_{\beta}   \\
+            \theta_{\gamma}   \\
+            \theta_{\omega}   \\
+            \theta_{\phi}   \\
+            \end{array}
+        \right]
+    \end{equation}
+    
+    em que $det(M) = 2^{x^2-3\beta} \ \%$\\
+    
+    ``texto entre aspas duplas''.\\
+
+     `texto entre aspas simples'.
+     
+    Dica$^1$ para a equação abixo: usa-se o mesmo conceito da matriz.\\
+    
+     Dica$^2$ para a equação abixo: você pode escrever um texto literal dentro de ambiente matemático com o comando:
+     \begin{verbatim}
+         \mbox {texto qualquer}
+     \end{verbatim}
+    
+    
+	$$
+	|x| =  \left\{
+	\begin{array}{lll}
+    	x     &   \mbox{se } \leq x ;\\ \\
+    	-x    & 	 \mbox{caso contrário}.
+	\end{array}
+	\right.
+	$$
+
+     
+    
+
+
+
+
+
+
+
+
+    
+\end{document}
